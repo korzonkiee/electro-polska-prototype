@@ -21,7 +21,7 @@ class EventCell extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Image.network(this.event.image,
+            Image.asset(this.event.image,
                 fit: BoxFit.fitWidth,
                 height: 120,
                 width: MediaQuery.of(context).size.width),

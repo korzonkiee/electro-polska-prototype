@@ -1,6 +1,7 @@
 import 'package:electro/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'events/data/events_repository.dart';
 import 'home_page.dart';
 
 void main() => runApp(MyApp());
@@ -8,7 +9,15 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return TextField();
+    return MultiProvider(
+      providers: [
+        Provider<EventsRepository>.value(value: EventsRepository()),
+      ],
+      child: ChangeNotifierProvider<ThemeChanger>(
+        builder: (_) => ThemeChanger(ThemeData.dark()),
+        child: new MaterialAppWithTheme(),
+      ),
+    );
   }
 }
 
